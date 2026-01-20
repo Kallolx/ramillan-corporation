@@ -36,21 +36,21 @@ const App: React.FC = () => {
       
       {/* Navigation */}
       <nav 
-        className="fixed bg-white shadow-md py-4 w-full z-50 transition-all duration-300"
+        className={`fixed py-4 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
-            <img src="/logo.svg" alt="ramillan" className="h-10" />
+            <img src={isScrolled ? '/logo.svg' : '/logo2.svg'} alt="ramillan" className="h-10" />
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('home')} className="hover:text-ramillan-gold transition-colors font-medium">{t.nav.home}</button>
-            <button onClick={() => scrollToSection('services')} className="hover:text-ramillan-gold transition-colors font-medium">{t.nav.services}</button>
-            <button onClick={() => scrollToSection('subsidiaries')} className="hover:text-ramillan-gold transition-colors font-medium">{t.nav.subsidiaries}</button>
-            <button onClick={() => scrollToSection('ceo')} className="hover:text-ramillan-gold transition-colors font-medium">{t.nav.ceo}</button>
-            <button onClick={() => scrollToSection('contact')} className="hover:text-ramillan-gold transition-colors font-medium">{t.nav.contact}</button>
+            <button onClick={() => scrollToSection('home')} className={`${isScrolled ? 'text-ramillan-dark' : 'text-white'} hover:text-ramillan-gold transition-colors font-medium`}>{t.nav.home}</button>
+            <button onClick={() => scrollToSection('services')} className={`${isScrolled ? 'text-ramillan-dark' : 'text-white'} hover:text-ramillan-gold transition-colors font-medium`}>{t.nav.services}</button>
+            <button onClick={() => scrollToSection('subsidiaries')} className={`${isScrolled ? 'text-ramillan-dark' : 'text-white'} hover:text-ramillan-gold transition-colors font-medium`}>{t.nav.subsidiaries}</button>
+            <button onClick={() => scrollToSection('ceo')} className={`${isScrolled ? 'text-ramillan-dark' : 'text-white'} hover:text-ramillan-gold transition-colors font-medium`}>{t.nav.ceo}</button>
+            <button onClick={() => scrollToSection('contact')} className={`${isScrolled ? 'text-ramillan-dark' : 'text-white'} hover:text-ramillan-gold transition-colors font-medium`}>{t.nav.contact}</button>
             
             <div className="h-6 w-px bg-gray-300 mx-2"></div>
             
@@ -59,7 +59,7 @@ const App: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-ramillan-dark"
+            className={`md:hidden ${isScrolled ? 'text-ramillan-dark' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -82,7 +82,7 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-ramillan-dark text-ramillan-light">
+      <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-ramillan-dark text-ramillan-light">
          {/* Background Elements */}
          <div className="absolute top-0 right-0 w-1/2 h-full bg-ramillan-light opacity-[0.03] transform skew-x-12 translate-x-1/4"></div>
          <div className="absolute bottom-0 left-0 w-96 h-96 bg-ramillan-gold rounded-full blur-[120px] opacity-20"></div>
@@ -118,16 +118,34 @@ const App: React.FC = () => {
       <Contact title={t.contact.sectionTitle} data={t.contact.info} lang={lang} />
 
       {/* Footer */}
-      <footer className="bg-ramillan-dark text-white py-12 border-t border-gray-800">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
-            <img src="/logo2.svg" alt="ramillan" className="h-10" />
+      <footer className="bg-ramillan-dark text-white py-4 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center md:justify-between gap-2">
+            {/* Logo (left) */}
+            <div className="w-full md:w-auto flex justify-center md:justify-start mb-1 md:mb-0">
+              <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
+                <img src="/logo2.svg" alt="ramillan" className="h-8" />
+              </div>
+            </div>
+
+            {/* Copyright (center) */}
+            <div className="w-full text-center text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} Ramillan Corporation. {t.footer.rights}
+            </div>
+
+            {/* Developer (right) - whole block clickable */}
+            <div className="w-full md:w-auto flex justify-center md:justify-end mt-1 md:mt-0">
+              <a href="https://kallol.me" target="_blank" rel="noopener noreferrer" title="Kallol.me" className="flex items-center gap-3 group">
+                <img
+                  src="/developer.avif"
+                  alt="Developer"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/developer.webp'; }}
+                  className="h-7 w-7 md:h-8 md:w-8 rounded-full object-cover border border-ramillan-gold/30 group-hover:scale-105 transition-transform"
+                />
+                <div className="text-sm text-gray-300">Developed by <span className="font-medium">Kamrul Hasan</span></div>
+              </a>
+            </div>
           </div>
-           
-           <div className="text-sm text-gray-400">
-             &copy; {new Date().getFullYear()} Ramillan Corporation. {t.footer.rights}
-           </div>
         </div>
       </footer>
 
