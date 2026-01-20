@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramillan Corporation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ramillan: {
+                dark: '#2b2b2b',
+                light: '#EFFFF2',
+                accent: '#FFF0D5',
+                gold: '#CFC1A8',
+                gray: '#4A4A4A'
+              }
+            },
+            fontFamily: {
+              serif: ['Fraunces', 'serif'],
+              sans: ['DM Sans', 'sans-serif'],
+              bengali: ['Noto Serif Bengali', 'serif'],
+            },
+            backgroundImage: {
+              'blob-pattern': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFF0D5' d='M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.3C93.5,8.6,82.2,21.5,71.1,32.8C60,44.1,49.1,53.8,37.3,62.1C25.5,70.4,12.7,77.3,-0.8,78.7C-14.3,80.1,-28.6,76,-40.8,68.2C-53,60.4,-63.1,48.9,-71.2,35.8C-79.3,22.7,-85.4,8,-84.3,-6.2C-83.2,-20.4,-74.9,-34.1,-64.1,-45.3C-53.3,-56.5,-40,-65.2,-26.8,-72.9C-13.6,-80.6,0.5,-87.3,14.6,-87.3C28.7,-87.3,42.8,-80.6,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E\")",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Ensure sticky elements work nicely */
+      body {
+        overflow-x: hidden;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
