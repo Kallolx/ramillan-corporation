@@ -10,7 +10,7 @@ export const CONTENT: Record<'en' | 'bn', Content> = {
       contact: 'Contact',
     },
     hero: {
-      headline: 'Global Trade & Construction Excellence',
+      headline: 'Global Trade Construction with Ramillan',
       subheadline: 'Your trusted partner in Import, Export, Supply, and Construction solutions.',
       cta: 'Explore Our Services',
     },
